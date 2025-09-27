@@ -1,0 +1,19 @@
+name: multi_agent_traj
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - jupyter
+  - pytorch
+  - torchvision
+  - torchaudio
+  - pymunk
+  - pygame
+  - matplotlib
+  - numpy
+  - pytest
+  - pip
+  - pip:
+    - jupyterlab
