@@ -24,7 +24,7 @@ def test_batching(positions, tm):
 def test_causal_mask(positions, tm):
 	tm2 = copy.deepcopy(tm).eval()
 	with torch.no_grad():
-		tm2.tgt_seeds[-20, :] += 0.01
+		tm2.tgt_seeds[-10, :] += 100.0
 	assert torch.allclose(tm(positions)[0, :, 0, :], tm2(positions)[0, :, 0, :])
 	assert not torch.allclose(tm(positions)[0, :, -1, :], tm2(positions)[0, :, -1, :])
 
@@ -32,6 +32,6 @@ def test_causal_mask(positions, tm):
 def test_multi_agent_self_attention(positions, tm):
 	tm2 = copy.deepcopy(tm).eval()
 	with torch.no_grad():
-		tm2.tgt_seeds[-1, :] += 0.01
+		tm2.tgt_seeds[-1, :] += 100.0
 	assert torch.allclose(tm(positions)[0, :, 0, :], tm2(positions)[0, :, 0, :])
 	assert not torch.allclose(tm(positions)[0, :, -2, :], tm2(positions)[0, :, -2, :])

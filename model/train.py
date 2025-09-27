@@ -18,6 +18,8 @@ if __name__ == "__main__":
 		num_samples=num_samples, 
 		num_balls=num_agents, 
 		num_steps=history_steps + lookahead_steps,
+		radius=50,
+		max_velocity=100,
 		lookahead_steps=lookahead_steps,
 	)
 	train_dataset, val_dataset = torch.utils.data.random_split(dataset, [0.8, 0.2])

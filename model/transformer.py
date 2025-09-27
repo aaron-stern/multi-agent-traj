@@ -51,6 +51,7 @@ class TrajectoryModel(nn.Module):
 				start_col = j * num_agents
 				end_col = (j + 1) * num_agents
 				causal_mask[start_row:end_row, start_col:end_col] = 0
+
 		return causal_mask
 
 
